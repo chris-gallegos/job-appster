@@ -1,16 +1,22 @@
-import { useState, useEffect, useRef } from 'react'
-import * as jobsAPI from '../../utilities/jobs-api'
+import NewJobForm from "../../components/NewJobForm/NewJobForm"
 
-export default function NewOrderPage() {
-    const [jobs, setJobs] = useState([]);
 
-    useEffect(function() {
-        async function getJobs() {
-          const jobs = await jobsAPI.getAll();
-          setJobs(jobs);
-        }
-        getJobs();
-      }, []);
+export default function AddJobPage({user, job, addJob}) {
+    return (
+        <div>
+            { job && job.length > 0 ?
 
-    return <h1>Add a job</h1>
-}
+                <>
+                    <hr />
+                    <h2>Create A Job</h2>
+                    <NewJobForm addJob={addJob}/>
+                </>
+            :
+                <>
+                    <h1>{user.name}'s has no jobs yet</h1>
+                    <sub>Create a Job</sub>
+                    <NewJobForm addJob={addJob}/>
+                </>
+            }
+        </div>
+)}
