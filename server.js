@@ -18,6 +18,9 @@ app.use(require('./config/checkToken'))
 
 app.use('/api/users', require('./routes/api/users'))
 
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/jobs', ensureLoggedIn, require('./routes/api/jobs'));
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
