@@ -8,7 +8,7 @@ export default function EditJobPage({jobs, updateJob, deleteJob}) {
     return (
         <div>
             <h2>Update Job</h2>
-            <UpdateJobForm updateJob={updateJob} deleteJob={deleteJob}/>
+            <UpdateJobForm singleJob={singleJob[0]} updateJob={updateJob} deleteJob={deleteJob}/>
             
         </div>
     )

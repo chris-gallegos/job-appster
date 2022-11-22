@@ -1,24 +1,17 @@
 import { useState } from 'react'
 import * as jobsAPI from '../../utilities/jobs-api'
 
-export default function UpdateJobForm({employment, updateJob}) {
+export default function UpdateJobForm({employment, updateJob, singleJob}) {
     const [updateJobForm, setUpdateJobForm] = useState({
-        position: '',
-        company: '',
-        location: '',
-        status: '',
+        position: singleJob.position,
+        company: singleJob.company,
+        location: singleJob.location,
+        status: singleJob.status,
     })
-
 
     async function handleSubmit(evt) {
         evt.preventDefault()
-        updateJob(employment._id, updateJobForm)
-        setUpdateJobForm({
-            position: '',
-            company: '',
-            location: '',
-            status: '',
-        })
+        updateJob(singleJob._id, updateJobForm)
     }
 
     function handleChange(evt) {
@@ -29,7 +22,7 @@ export default function UpdateJobForm({employment, updateJob}) {
         setUpdateJobForm(newUpdateJobForm)
     }
     
-  
+  console.log(updateJobForm)
     return (
         <form onSubmit={handleSubmit}>
             <label>Position</label>
