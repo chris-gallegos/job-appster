@@ -25,6 +25,7 @@ async function create(req, res) {
 
 async function deleteJob(req, res) {
     const deleteJob = await Job.findByIdAndRemove(req.params.id);
+    console.log(deleteJob)
     const job = await Job.find({user : req.user._id})
     return res.json(job)
 }

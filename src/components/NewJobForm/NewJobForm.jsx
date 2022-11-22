@@ -6,6 +6,7 @@ export default function NewJobForm({addJob}) {
         company: '',
         location: '',
         status: '',
+        date: ''
     })
 
 
@@ -17,6 +18,7 @@ export default function NewJobForm({addJob}) {
             company: '',
             location: '',
             status: '',
+            date: ''
         })
     }
 
@@ -39,10 +41,12 @@ export default function NewJobForm({addJob}) {
             <input type='text' name='location' value={jobForm.location} onChange={handleChange}></input>
             <label>Status</label>
             <select name="status" value={jobForm.status} onChange={handleChange}>
-                <option value='Pending'>pending</option>
-                <option value='Declined'>declined</option>
-                <option value='Interview'>interview</option>
+                <option value='Pending'>Pending</option>
+                <option value='Declined'>Declined</option>
+                <option value='Interview'>Interview</option>
             </select>
+            <label>Recent Date</label>
+            <input type='date' name='date' value={jobForm.date} onChange={handleChange}></input>
             <button type="submit">Submit</button>
         </form>
     );

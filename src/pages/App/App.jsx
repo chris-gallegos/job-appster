@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, redirect, useNavigate } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
@@ -14,12 +14,11 @@ export default function App() {
   const [user, setUser] = useState(getUser())
   const [jobs, setJobs] = useState([]);
   const [switchy, setSwitchy] = useState(true);
-
+ const navigate = useNavigate()
 
   useEffect(function() {
     async function getJob() {
       let employments = await jobsAPI.getAllJobs()
-      console.log(employments)
       setJobs(employments)
     }
 
@@ -34,11 +33,13 @@ export default function App() {
   async function addJob(newJob) {
     const newestProp = await jobsAPI.addAJob(newJob)
     setJobs([...jobs, newestProp])
+    navigate('/jobs')
   }
 
   async function deleteJob(delJob) {
     const newJobs = await jobsAPI.deleteJob(delJob)
     setJobs(newJobs)
+    navigate('/jobs')
 } 
   
 
@@ -49,6 +50,7 @@ export default function App() {
     const newJobs = [...jobs]
     newJobs[foundEmployment] = newUpdatedJob
     setJobs(newJobs)
+    navigate('/jobs')
     setSwitchy(!switchy)
   }
 

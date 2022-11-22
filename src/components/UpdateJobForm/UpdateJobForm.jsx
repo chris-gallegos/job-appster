@@ -7,6 +7,7 @@ export default function UpdateJobForm({employment, updateJob, singleJob}) {
         company: singleJob.company,
         location: singleJob.location,
         status: singleJob.status,
+        date: singleJob.date
     })
 
     async function handleSubmit(evt) {
@@ -37,6 +38,8 @@ export default function UpdateJobForm({employment, updateJob, singleJob}) {
                 <option value='Declined'>declined</option>
                 <option value='Interview'>interview</option>
             </select>
+            <label>Recent Date</label>
+            <input type='date' name='date' value={updateJobForm.date} onChange={handleChange}></input>
             <button type="submit">Submit</button>
         </form>
     );

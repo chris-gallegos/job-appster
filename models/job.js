@@ -7,8 +7,11 @@ const jobSchema = new Schema({
     location: String,
     status: { 
         type: String,
-        enum: ['Pending', 'Declined', 'Interview']
+        default: 'Pending',
     },
+    date: { 
+        type: String,
+    }
 }, {
     timestamps: true
 }

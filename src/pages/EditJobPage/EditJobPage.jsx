@@ -8,8 +8,8 @@ export default function EditJobPage({jobs, updateJob, deleteJob}) {
     return (
         <div>
             <h2>Update Job</h2>
-            <UpdateJobForm singleJob={singleJob[0]} updateJob={updateJob} deleteJob={deleteJob}/>
-            
+            <UpdateJobForm singleJob={singleJob[0]} updateJob={updateJob} />
+            <button onClick={() => deleteJob(id)}>DELETE</button>
         </div>
     )
 }

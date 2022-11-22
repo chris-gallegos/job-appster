@@ -26,6 +26,7 @@ export default function AllJobsPage({jobs}) {
                     <li>{job.company}</li>
                     <li>{job.location}</li>
                     <li>{job.status}</li>
+                    <li>{job.date}</li>
                     </ul>
                     </Link>
                 )
