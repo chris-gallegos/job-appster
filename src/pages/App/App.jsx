@@ -7,18 +7,20 @@ import AddJobPage from '../AddJobPage/AddJobPage'
 import AllJobsPage from '../AllJobsPage/AllJobsPage'
 import MyProflePage from '../MyProfilePage/MyProfilePage'
 import NavBar from '../../components/NavBar/NavBar'
+import EditJobPage from '../EditJobPage/EditJobPage'
 import * as jobsAPI from '../../utilities/jobs-api'
 
 export default function App() {
   const [user, setUser] = useState(getUser())
-  const [job, setJob] = useState(null);
+  const [jobs, setJobs] = useState([]);
   const [switchy, setSwitchy] = useState(true);
 
 
   useEffect(function() {
     async function getJob() {
       let employments = await jobsAPI.getAllJobs()
-      setJob(employments)
+      console.log(employments)
+      setJobs(employments)
     }
 
     if (user){
@@ -31,26 +33,24 @@ export default function App() {
 
   async function addJob(newJob) {
     const newestProp = await jobsAPI.addAJob(newJob)
-    setJob([...job, newestProp])
+    setJobs([...jobs, newestProp])
   }
 
   async function deleteJob(delJob) {
     const newJobs = await jobsAPI.deleteJob(delJob)
-    setJob(newJobs)
+    setJobs(newJobs)
 } 
   
 
   async function updateJob(employmentId, updateJob) {
     const updatedJob = await jobsAPI.updateAJob(employmentId, updateJob)
     const newUpdatedJob = {...updatedJob}
-    const foundEmployment = job.findIndex(employment => employment._id === employmentId)
-    const newJobs = [...job]
+    const foundEmployment = jobs.findIndex(employment => employment._id === employmentId)
+    const newJobs = [...jobs]
     newJobs[foundEmployment] = newUpdatedJob
-    setJob(newJobs)
+    setJobs(newJobs)
     setSwitchy(!switchy)
   }
-
-
 
 
   return (
@@ -61,10 +61,11 @@ export default function App() {
           <Routes>
            <Route path="/profile" element={<MyProflePage />} />
             <Route path="/jobs/new" element={<AddJobPage user = {user}
-             job = {job} addJob={addJob}/>} />
+             jobs = {jobs} addJob={addJob}/>} />
             <Route path="/jobs" element={<AllJobsPage user = {user}
-             job = {job} addJob={addJob} updateJob={updateJob}
+             jobs = {jobs} addJob={addJob} updateJob={updateJob}
              deleteJob={deleteJob}/>} />
+            <Route path='/edit/:id' element={<EditJobPage user = {user} updateJob={updateJob} jobs = {jobs} deleteJob={deleteJob} />} />
           </Routes>
         </>
         :

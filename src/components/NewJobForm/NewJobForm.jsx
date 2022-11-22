@@ -2,7 +2,10 @@ import { useState } from 'react'
 
 export default function NewJobForm({addJob}) {
     const [jobForm, setJobForm] = useState({
-        name: ''
+        position: '',
+        company: '',
+        location: '',
+        status: '',
     })
 
 
@@ -10,7 +13,10 @@ export default function NewJobForm({addJob}) {
         evt.preventDefault()
         addJob(jobForm)
         setJobForm({
-            name: ''
+            position: '',
+            company: '',
+            location: '',
+            status: '',
         })
     }
 
@@ -25,8 +31,18 @@ export default function NewJobForm({addJob}) {
   
     return (
         <form onSubmit={handleSubmit}>
-            <label>Job Name:</label>
-            <input type='text' name='name' value={jobForm.name} onChange={handleChange}></input>
+            <label>Position</label>
+            <input type='text' name='position' value={jobForm.position} onChange={handleChange}></input>
+            <label>Company</label>
+            <input type='text' name='company' value={jobForm.company} onChange={handleChange}></input>
+            <label>Location</label>
+            <input type='text' name='location' value={jobForm.location} onChange={handleChange}></input>
+            <label>Status</label>
+            <select name="status" value={jobForm.status} onChange={handleChange}>
+                <option value='Pending'>pending</option>
+                <option value='Declined'>declined</option>
+                <option value='Interview'>interview</option>
+            </select>
             <button type="submit">Submit</button>
         </form>
     );

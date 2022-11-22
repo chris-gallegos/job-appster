@@ -11,6 +11,8 @@ export default function JobList({job, updateJob, deleteJob}) {
               <tr>
                 <th>Position</th>
                 <th>Company</th>
+                <th>Job Location</th>
+                <th>Status</th>
                 <th>Update Job Position</th>
                 <th>DELETE Job</th>
               </tr>

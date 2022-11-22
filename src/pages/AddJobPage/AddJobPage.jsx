@@ -13,8 +13,8 @@ export default function AddJobPage({user, job, addJob}) {
                 </>
             :
                 <>
-                    <h1>{user.name}'s has no jobs yet</h1>
-                    <sub>Create a Job</sub>
+
+                     <h2>Create A Job</h2>
                     <NewJobForm addJob={addJob}/>
                 </>
             }
