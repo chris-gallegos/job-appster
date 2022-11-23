@@ -14,6 +14,7 @@ export function checkToken() {
 }
 
 //adding update
-export function update(userData) {
-    return sendRequest(`${BASE_URL}/profile`, 'PUT', userData)
+export function update(id, userData) {
+    console.log(userData)
+    return sendRequest(`${BASE_URL}/profile/${id}`, 'PUT', userData)
 }

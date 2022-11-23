@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { update }  from '../../utilities/users-api'
 
 
-export default function UpdateProfileForm({user}) {
+export default function UpdateProfileForm({user, updateUser}) {
     const [updateUserForm, setUpdateUserForm] = useState({
         name: user.name,
         email: user.email
@@ -9,7 +10,7 @@ export default function UpdateProfileForm({user}) {
 
     async function handleSubmit(evt) {
         evt.preventDefault()
-        // update(user._id, updateUserForm)
+        updateUser(user._id, updateUserForm)
     }
 
     function handleChange(evt) {
@@ -20,13 +21,13 @@ export default function UpdateProfileForm({user}) {
         setUpdateUserForm(newUpdateUserForm)
     }
     
-  console.log()
+  console.log(updateUserForm)
     return (
         <form onSubmit={handleSubmit}>
             <label>Your Name</label>
-            <input type='text' name='position' value={updateUserForm.position} onChange={handleChange}></input>
+            <input type='text' name='name' value={updateUserForm.name} onChange={handleChange}></input>
             <label>Your Email</label>
-            <input type='text' name='company' value={updateUserForm.company} onChange={handleChange}></input>
+            <input type='text' name='email' value={updateUserForm.email} onChange={handleChange}></input>
             
             <button type="submit">Submit</button>
         </form>

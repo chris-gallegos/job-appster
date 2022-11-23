@@ -51,6 +51,10 @@ function createJWT(user) {
 //update user 
 
 async function update(req, res) {
-    const updateUser = await User.findByIdAndUpdate(req.params.id, req.body);
-    return res.json(updateUser)
+    console.log(req.body)
+    User.findOneAndUpdate({_id: req.params.id}, req.body, 
+    async function(err, updatedUser) {
+        console.log(updatedUser)
+       return res.json(updatedUser)
+    });
 }

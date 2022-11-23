@@ -12,6 +12,7 @@ import * as jobsAPI from '../../utilities/jobs-api'
 import * as usersAPI from '../../utilities/users-api'
 
 
+
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [jobs, setJobs] = useState([]);
@@ -19,6 +20,7 @@ export default function App() {
  const navigate = useNavigate()
 
   useEffect(function() {
+
     async function getJob() {
       let employments = await jobsAPI.getAllJobs()
       setJobs(employments)
@@ -56,20 +58,17 @@ export default function App() {
     setSwitchy(!switchy)
   }
 
- //edit user
-//  async function updateUser(updateUser) {
-//   const updatedUser = await usersAPI.update(update)
-//   const newUpdatedUser = {...updatedUser}
-//   const foundProfile = jobs.findIndex(employment => employment._id === employmentId)
-//   const newJobs = [...jobs]
-//   newJobs[foundEmployment] = newUpdatedJob
-//   setJobs(newJobs)
-//   navigate('/jobs')
-//   setSwitchy(!switchy)
-// }
-
-
-
+  async function updateUser(id, updateUser) {
+    console.log(updateUser, id)
+    const updatedUser = await usersAPI.update(id, updateUser)
+    console.log(updatedUser)
+    const newUpdatedUser = {...updatedUser}
+    setUser((user) => newUpdatedUser)
+    console.log(user)
+    // console.log(newUpdatedUser)
+    navigate('/profile')
+    setSwitchy(!switchy)
+   }
 
   return (
     <main className="App">
@@ -77,7 +76,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-           <Route path="/profile" element={<MyProflePage user = {user} />} />
+           <Route path="/profile" element={<MyProflePage user = {user} updateUser={updateUser} />} />
             <Route path="/jobs/new" element={<AddJobPage user = {user}
              jobs = {jobs} addJob={addJob}/>} />
             <Route path="/jobs" element={<AllJobsPage user = {user}
