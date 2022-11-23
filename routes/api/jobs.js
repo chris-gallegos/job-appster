@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 router.get('/index', ensureLoggedIn, jobsCtrl.index);
 router.post('/create', ensureLoggedIn, jobsCtrl.create);
-router.get(`/:selectedProperty`, ensureLoggedIn, jobsCtrl.show)
+router.get(`/:selectedJob`, ensureLoggedIn, jobsCtrl.show)
 router.delete('/delete/:id', ensureLoggedIn, jobsCtrl.delete);
 router.put('/:id', ensureLoggedIn, jobsCtrl.update);
 

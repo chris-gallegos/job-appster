@@ -12,3 +12,8 @@ export async function login(userData) {
 export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
+
+//adding update
+export function update(userData) {
+    return sendRequest(`${BASE_URL}/profile`, 'PUT', userData)
+}

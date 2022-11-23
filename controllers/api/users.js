@@ -6,6 +6,7 @@ module.exports = {
     create,
     login,
     checkToken,
+    update
 }
 
 async function create(req, res) {
@@ -45,4 +46,11 @@ function createJWT(user) {
         process.env.SECRET,
         { expiresIn: '24h' }
     )
+}
+
+//update user 
+
+async function update(req, res) {
+    const updateUser = await User.findByIdAndUpdate(req.params.id, req.body);
+    return res.json(updateUser)
 }
