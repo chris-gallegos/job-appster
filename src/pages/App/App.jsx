@@ -64,8 +64,6 @@ export default function App() {
     console.log(updatedUser)
     const newUpdatedUser = {...updatedUser}
     setUser((user) => newUpdatedUser)
-    console.log(user)
-    // console.log(newUpdatedUser)
     navigate('/profile')
     setSwitchy(!switchy)
    }
