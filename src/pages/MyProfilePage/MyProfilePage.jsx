@@ -3,7 +3,7 @@ import UpdateProfileForm from "../../components/UpdateProfileForm/UpdateProfileF
 
 export default function MyProfile({user, updateUser}) {
 
-    console.log(user)
+  
     return (
     <div>
         <h2>Profile</h2>

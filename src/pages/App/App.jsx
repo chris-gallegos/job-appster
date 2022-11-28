@@ -58,15 +58,23 @@ export default function App() {
     setSwitchy(!switchy)
   }
 
+  // async function updateUser(id, updateUser) {
+  //   console.log(updateUser, id)
+  //   const updatedUser = await usersAPI.update(id, updateUser)
+  //   console.log(updatedUser)
+  //   const newUpdatedUser = {...updatedUser}
+  //   setUser((user) => newUpdatedUser)
+  //   navigate('/profile')
+  //   setSwitchy(!switchy)
+  //  }
+
   async function updateUser(id, updateUser) {
-    console.log(updateUser, id)
     const updatedUser = await usersAPI.update(id, updateUser)
-    console.log(updatedUser)
-    const newUpdatedUser = {...updatedUser}
-    setUser((user) => newUpdatedUser)
+    setUser(updatedUser)
     navigate('/profile')
-    setSwitchy(!switchy)
-   }
+  } 
+
+
 
   return (
     <main className="App">
