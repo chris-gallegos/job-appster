@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
     }
 
     return (
-        <nav>
+        <div className='Sidebar'>
             <Link to="/profile">My Profile</Link>
             &nbsp; | &nbsp;
             <Link to="/jobs">All Jobs</Link>
@@ -19,6 +19,6 @@ export default function NavBar({ user, setUser }) {
             Welcome, {user.name}
             &nbsp; | &nbsp;
             <Link to="" onClick={handleLogOut}>Log Out</Link>
-        </nav>
+        </div>
     )
 }

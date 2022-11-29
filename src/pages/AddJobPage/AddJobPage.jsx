@@ -1,9 +1,11 @@
 import NewJobForm from "../../components/NewJobForm/NewJobForm"
+import "./AddJobPage.css"
+
 
 
 export default function AddJobPage({user, job, addJob}) {
     return (
-        <div>
+        <div className="add">
             { job && job.length > 0 ?
 
                 <>

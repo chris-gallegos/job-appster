@@ -77,10 +77,10 @@ export default function App() {
 
 
   return (
-    <main className="App">
+    <div className="App">
       { user ? 
         <>
-          <NavBar user={user} setUser={setUser} />
+        <NavBar user={user} setUser={setUser} />
           <Routes>
            <Route path="/profile" element={<MyProflePage user = {user} updateUser={updateUser} />} />
             <Route path="/jobs/new" element={<AddJobPage user = {user}
@@ -90,11 +90,12 @@ export default function App() {
              deleteJob={deleteJob}/>} />
             <Route path='/edit/:id' element={<EditJobPage user = {user} updateJob={updateJob} jobs = {jobs} deleteJob={deleteJob} />} />
           </Routes>
+        
         </>
         :
         <AuthPage setUser={setUser}/>
       }
-    </main>
+    </div>
   );
 }
 
