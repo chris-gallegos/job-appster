@@ -21,7 +21,7 @@ export default function UpdateProfileForm({user, updateUser}) {
         setUpdateUserForm(newUpdateUserForm)
     }
     
-  console.log(updateUserForm)
+  
     return (
         <form onSubmit={handleSubmit}>
             <label>Your Name</label>
@@ -29,7 +29,7 @@ export default function UpdateProfileForm({user, updateUser}) {
             <label>Your Email</label>
             <input type='text' name='email' value={updateUserForm.email} onChange={handleChange}></input>
             
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
         </form>
     );
 }

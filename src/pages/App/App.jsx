@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, redirect, useNavigate } from 'react-router-dom'
+import { Routes, Route, redirect, useNavigate, Switch } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
@@ -10,6 +10,8 @@ import NavBar from '../../components/NavBar/NavBar'
 import EditJobPage from '../EditJobPage/EditJobPage'
 import * as jobsAPI from '../../utilities/jobs-api'
 import * as usersAPI from '../../utilities/users-api'
+import HomePage from '../HomePage/HomePage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -59,23 +61,11 @@ export default function App() {
     setSwitchy(!switchy)
   }
 
-  // async function updateUser(id, updateUser) {
-  //   console.log(updateUser, id)
-  //   const updatedUser = await usersAPI.update(id, updateUser)
-  //   console.log(updatedUser)
-  //   const newUpdatedUser = {...updatedUser}
-  //   setUser((user) => newUpdatedUser)
-  //   navigate('/profile')
-  //   setSwitchy(!switchy)
-  //  }
-
   async function updateUser(id, updateUser) {
     const updatedUser = await usersAPI.update(id, updateUser)
     setUser(updatedUser)
     navigate('/profile')
   } 
-
-
 
   return (
     <div className="App">
@@ -83,6 +73,7 @@ export default function App() {
         <>
         <NavBar user={user} setUser={setUser} />
           <Routes>
+            <Route path='/' element={<HomePage/>} />
            <Route path="/profile" element={<MyProflePage user = {user} updateUser={updateUser} />} />
             <Route path="/jobs/new" element={<AddJobPage user = {user}
              jobs = {jobs} addJob={addJob}/>} />
