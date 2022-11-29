@@ -134,15 +134,16 @@ button.btn-sm {
   padding: .6vmin .8vmin;
 }
 
-button.btn-xs {
- 
-}
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: rgb(77, 131, 238);
 }
 
 button[type="submit"] {
-  
+  color: white;
+}
+
+button:hover{
+  transform: scale(1.10);
 }

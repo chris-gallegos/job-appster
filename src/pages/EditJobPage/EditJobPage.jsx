@@ -11,7 +11,7 @@ export default function EditJobPage({jobs, updateJob, deleteJob}) {
         <div className="update">
             <h2>Update Job</h2>
             <UpdateJobForm singleJob={singleJob[0]} updateJob={updateJob} />
-            <button onClick={() => deleteJob(id)}>DELETE</button>
+            <button className="delete" onClick={() => deleteJob(id)}>DELETE</button>
         </div>
     )
 }

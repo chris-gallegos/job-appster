@@ -5,6 +5,7 @@
     width: 90%;
     flex-wrap: wrap;
     align-items: center;
+    overflow: auto;
 }
 
 .title {

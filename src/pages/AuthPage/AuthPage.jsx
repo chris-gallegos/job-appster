@@ -4,22 +4,25 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "./AuthPage.css"
 
 export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <Container fluid className="container">
-      <Row className="flex-column align-items-center">
-        <Col lg={6} sm={10}>
-          <p
-            className="btn btn-lg border-dark p-4 m-5"
+    <Container className="authmain">
+        <h2>Welcome to Job Appster</h2>
+      <Row className="">
+        <Col>
+          <h3
+            className="welcome"
+            
             onClick={() => setShowLogin(!showLogin)}
           >
-            {showLogin ? "Welcome to the log in page! Click here to sign up" : "Welcome to the sign up page! Click here to log in"}
-          </p>
+            {showLogin ? "Not a member yet? Register" : "Already a member? Log in"}
+          </h3>
         </Col>
-        <Col lg={6} sm={10}>
+        <Col >
           {showLogin ? (
             <LoginForm setUser={setUser} />
           ) : (

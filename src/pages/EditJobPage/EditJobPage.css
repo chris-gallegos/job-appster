@@ -5,3 +5,12 @@
     align-items: center;
 }
 
+.delete {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+}
+
+.delete:hover{
+    
+}
