@@ -8,10 +8,10 @@ export default function MyProfile({user, updateUser}) {
     <div className="Profile">
         <h2>Profile</h2>
         <UpdateProfileForm user={user} updateUser={updateUser} />
-        <ul>
-            <li>{user.name}</li>
-            <li>{user.email}</li>
-        </ul>
+        <div>
+            <h1>Hello, my name is {user.name}</h1>
+            <h1>My email is {user.email}</h1>
+        </div>
     </div>
     )
 }

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FaRegUserCircle, FaSearch, FaRegFileAlt, FaSignOutAlt } from "react-icons/fa";
 import * as userService from '../../utilities/users-service'
 
 export default function NavBar({ user, setUser }) {
@@ -10,15 +11,13 @@ export default function NavBar({ user, setUser }) {
 
     return (
         <div className='Sidebar'>
-            <Link to="/profile">My Profile</Link>
-            &nbsp; | &nbsp;
-            <Link to="/jobs">All Jobs</Link>
-            &nbsp; | &nbsp;
-            <Link to="/jobs/new">Add a Job</Link>
-            &nbsp; | &nbsp;
-            Welcome, {user.name}
-            &nbsp; | &nbsp;
-            <Link to="" onClick={handleLogOut}>Log Out</Link>
+            <Link className='link' to="/profile"><FaRegUserCircle /> Profile</Link> 
+            &nbsp;  
+            <Link className='link' to="/jobs"><FaSearch /> All Jobs</Link>
+            &nbsp; 
+            <Link className='link' to="/jobs/new"><FaRegFileAlt /> Add a Job</Link>
+            &nbsp; 
+            <Link className='link' to="" onClick={handleLogOut}><FaSignOutAlt /> Log Out</Link>
         </div>
     )
 }

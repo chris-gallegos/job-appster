@@ -13,6 +13,7 @@ import * as usersAPI from '../../utilities/users-api'
 
 
 
+
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [jobs, setJobs] = useState([]);
@@ -90,6 +91,7 @@ export default function App() {
              deleteJob={deleteJob}/>} />
             <Route path='/edit/:id' element={<EditJobPage user = {user} updateJob={updateJob} jobs = {jobs} deleteJob={deleteJob} />} />
           </Routes>
+          <p>Hello, {user.name}</p>
         
         </>
         :
