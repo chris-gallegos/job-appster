@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { update }  from '../../utilities/users-api'
 
 
 export default function UpdateProfileForm({user, updateUser}) {

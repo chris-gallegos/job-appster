@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import * as jobsAPI from '../../utilities/jobs-api'
+
 
 export default function UpdateJobForm({employment, updateJob, singleJob}) {
     const [updateJobForm, setUpdateJobForm] = useState({

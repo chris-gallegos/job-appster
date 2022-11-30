@@ -12,7 +12,7 @@ export default function AuthPage({ setUser }) {
   return (
     <Container className="authmain">
         <h2>Welcome to Job Appster</h2>
-      <Row className="">
+      <Row>
         <Col>
           <h3
             className="welcome"

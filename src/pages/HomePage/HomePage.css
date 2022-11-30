@@ -12,7 +12,7 @@
     100% {
       transform: translateX(0);
     }
-  }
+}
   
   @keyframes slideInFromRight {
     0% {
@@ -21,17 +21,17 @@
     100% {
       transform: translateX(0);
     }
-  }
+}
   
-  .section {  
-    animation: 1s ease-out 0s 1 slideInFromLeft;
-    
-    background: transparent;
-    padding: 30px;
-  }
+.section {  
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  
+  background: transparent;
+  padding: 30px;
+}
 
-  .start {
-    text-decoration: none;
-    color: inherit;
-    color: white;
-  }
+.start {
+  text-decoration: none;
+  color: inherit;
+  color: white;
+}

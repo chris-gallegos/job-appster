@@ -13,8 +13,7 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
 
-//adding update
+//Profile update
 export function update(id, userData) {
-    console.log(userData)
     return sendRequest(`${BASE_URL}/profile/${id}`, 'PUT', userData)
 }
