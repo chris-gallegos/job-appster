@@ -12,7 +12,8 @@
     border-radius: 25px;
     background-color: white;
     margin: 70px;
-    width: 300px;
+    width: auto;
+    padding: 25px;
 }
 
 .profile-card:hover {
