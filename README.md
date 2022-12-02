@@ -10,7 +10,7 @@ Job Appster is a full-stack application that enables users to add, view, edit an
 
 ## Application Demo
 
-### Click <a href="" target="_blank">here</a> to use the application!
+### Click <a href="https://job-appster.herokuapp.com/" target="_blank">here</a> to use the application!
 
 ### Visual Demo:
 
